@@ -1,0 +1,197 @@
+@reference "./index.css";
+
+@layer components {
+  .logo {
+    @apply text-lg font-bold text-black;
+  }
+
+  .logo-image {
+    @apply w-12 h-12 object-contain;
+  }
+
+  .logo span {
+    @apply font-normal;
+  }
+
+  .header {
+    @apply sticky top-0 flex justify-between px-12 py-5 border-b border-black items-center bg-red-700 z-50;
+  }
+
+  .btn {
+    @apply bg-primary text-white px-5 py-2 rounded transition-all duration-300;
+  }
+
+  .btn:hover {
+    @apply opacity-80 shadow-md;
+  }
+
+  .btn-primary {
+    @apply bg-primary;
+  }
+
+  .btn-outline {
+    @apply bg-transparent text-grey border border-primary;
+  }
+
+  .nav-links {
+    @apply flex gap-8;
+  }
+
+  .nav-links a {
+    @apply text-white font-normal transition-colors duration-300;
+  }
+
+  .nav-links a:hover {
+    @apply text-hover-link;
+  }
+
+  .hero {
+    @apply flex justify-center items-center py-12 px-12 bg-cover bg-center;
+    background-image: url(/src/Gambar/360_F_308697506_9dsBYHXm9FwuW0qcEqimAEXUvzTwfzwe.jpg);
+  }
+
+  .tag {
+    @apply bg-grey rounded-full px-3 py-1 text-xs text-grey-text w-fit;
+  }
+
+  .hero-text h1 {
+    @apply text-lg font-bold text-white;
+  }
+
+  .hero-text p {
+    @apply text-lg text-white mt-5 mb-7 drop-shadow-lg;
+  }
+
+  .hero-image {
+    @apply hidden;
+  }
+
+  .feature {
+    @apply py-12 px-12 max-w-4xl;
+  }
+
+  .feature-title {
+    @apply text-4xl font-bold mb-6;
+  }
+
+  .feature-content {
+    @apply flex items-center gap-5;
+  }
+
+  .feature-image {
+    @apply w-72 h-auto rounded-lg object-cover;
+  }
+
+  .feature-card {
+    @apply bg-white rounded-lg overflow-hidden;
+  }
+
+  .feature-text {
+    @apply flex-1;
+  }
+
+  .categories-section {
+    @apply py-12 px-12 flex flex-col items-center bg-grey;
+  }
+
+  .categories-section h2 {
+    @apply text-4xl font-bold text-primary mb-10;
+  }
+
+  .categories {
+    @apply grid grid-cols-5 gap-5 max-w-5xl mx-auto;
+  }
+
+  .categories-list {
+    @apply flex flex-col bg-white border border-border px-5 py-5 text-secondary transition-all duration-300 rounded-lg hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .categories-card {
+    @apply rounded-lg;
+  }
+
+  .categories-icon {
+    @apply text-base text-border rounded-full border border-primary px-2 py-1 w-fit;
+  }
+
+  .categories-list img {
+    @apply mb-2;
+  }
+
+  .trending-section {
+    @apply py-12 px-12 flex flex-col items-center bg-grey;
+  }
+
+  .trending-section h2 {
+    @apply text-4xl font-bold text-primary mb-10;
+  }
+
+  .trending {
+    @apply grid grid-cols-4 gap-5 max-w-5xl mx-auto;
+  }
+
+  .trending-item {
+    @apply flex flex-col bg-white border border-border px-5 py-5 gap-1 text-secondary rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+
+  .trending-item p {
+    @apply text-sm text-secondary my-2;
+  }
+
+  .trending-item img {
+    @apply mb-2;
+  }
+
+  .link {
+    @apply flex gap-8 justify-center;
+  }
+
+  .link a {
+    @apply text-primary font-normal transition-colors duration-300 hover:text-hover-link;
+  }
+
+  .sosmed {
+    @apply flex gap-5 justify-center;
+  }
+
+  .sosmed a {
+    @apply text-primary font-normal transition-colors duration-300 hover:text-hover-link;
+  }
+
+  .copyrights {
+    @apply flex justify-center;
+  }
+
+  .card {
+    @apply bg-white rounded-lg overflow-hidden transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply shadow-lg;
+  }
+
+  .card-image {
+    @apply w-full h-auto overflow-hidden;
+  }
+
+  .card-image img {
+    @apply w-full h-full object-cover;
+  }
+
+  .card-content {
+    @apply p-4;
+  }
+
+  .card-title {
+    @apply m-0 mb-2 text-base font-semibold;
+  }
+
+  .card-description {
+    @apply m-0 text-grey-text text-sm leading-relaxed;
+  }
+
+  .card-body {
+    @apply mt-3;
+  }
+}
+

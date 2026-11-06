@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #313131;
+  --color-secondary: #464646;
+  --color-grey: #f3f3f3;
+  --color-grey-text: #707070;
+  --color-border: #d8d8d8;
+  --color-hover-link: #9500ff;
+
+  --font-poppins: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
