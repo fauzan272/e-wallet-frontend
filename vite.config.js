@@ -11,7 +11,7 @@ export default defineConfig({
     proxy: {
       // Mengarahkan setiap request yang diawali '/api' dari port 5173 ke port 5000 backend
       '/api': {
-        target: 'http://103.247.11.173:5000',
+        target: 'http://localhost:5000',
         changeOrigin: true,
         secure: false
       }

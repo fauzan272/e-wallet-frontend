@@ -9,13 +9,10 @@ function Dashboard() {
   const [message, setMessage] = useState({ type: "", text: "" });
   const [loading, setLoading] = useState(false);
 
-  // Ambil token JWT dari localStorage
   const token = localStorage.getItem("token");
 
-  // Poin b.i & b.iv: Ambil data saldo awal dan riwayat mutasi dari backend
   async function fetchDashboardData() {
     try {
-      // Hapus http://localhost:5000 agar melewati proxy Vite
       const walletRes = await fetch("/api/wallet", {
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -102,7 +99,6 @@ function Dashboard() {
     <div className="max-w-6xl mx-auto p-6 font-sans">
       <h1 className="text-3xl font-bold text-gray-800 mb-6">Dashboard E-wallet</h1>
 
-      {/* Notifikasi Status Berhasil / Gagal */}
       {message.text && (
         <div
           className={`p-4 mb-6 rounded-lg border text-sm font-medium ${
@@ -116,7 +112,6 @@ function Dashboard() {
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        {/* KARTU 1: Informasi Saldo Saat Ini (Poin b.i) */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col justify-between">
           <div>
             <p className="text-sm font-medium text-gray-400 uppercase tracking-wider">Saldo Anda</p>
@@ -125,11 +120,9 @@ function Dashboard() {
             </h3>
           </div>
           <div className="mt-4 text-xs text-gray-400">
-            *Saldo otomatis diperbarui setiap transaksi selesai dilakukan.
           </div>
         </div>
 
-        {/* KARTU 2: Form Top Up Saldo (Poin b.ii) */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
           <h3 className="text-lg font-bold text-gray-800 mb-4">Top Up Saldo</h3>
           <form onSubmit={handleTopup} className="flex flex-col gap-3">
@@ -153,7 +146,6 @@ function Dashboard() {
           </form>
         </div>
 
-        {/* KARTU 3: Form Transfer Saldo (Poin b.iii) */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
           <h3 className="text-lg font-bold text-gray-800 mb-4">Transfer Uang</h3>
           <form onSubmit={handleTransfer} className="flex flex-col gap-3">
@@ -187,7 +179,6 @@ function Dashboard() {
         </div>
       </div>
 
-      {/* BAGIAN BAWAH: Tabel Riwayat Mutasi Masuk & Keluar (Poin b.iv & Security) */}
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
         <h3 className="text-lg font-bold text-gray-800 mb-4">Riwayat Mutasi Dompet</h3>
         <div className="overflow-x-auto">
@@ -204,7 +195,6 @@ function Dashboard() {
               {mutations.length === 0 ? (
                 <tr>
                   <td colSpan="4" className="py-8 text-center text-gray-400">
-                    Belum ada riwayat transaksi pada dompet ini.
                   </td>
                 </tr>
               ) : (
