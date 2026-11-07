@@ -13,7 +13,7 @@ function Dashboard() {
 
   async function fetchDashboardData() {
     try {
-      const walletRes = await fetch("${API_BASE}/wallet", {
+      const walletRes = await fetch('${API_BASE}/wallet', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const walletData = await walletRes.json();
@@ -41,7 +41,7 @@ function Dashboard() {
     setMessage({ type: "", text: "" });
 
     try {
-      const res = await fetch("${API_BASE}/topup", {
+      const res = await fetch('${API_BASE}/topup', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +70,7 @@ function Dashboard() {
     setMessage({ type: "", text: "" });
 
     try {
-      const res = await fetch("${API_BASE}/transfer", {
+      const res = await fetch('${API_BASE}/transfer', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
