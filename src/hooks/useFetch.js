@@ -4,11 +4,10 @@ const BASE_URL = (
   import.meta.env.VITE_API_URL || ''
 ).replace(/\/+$/, '');
 
-// Membuat URL endpoint secara konsisten
 function buildUrl(endpoint) {
   if (!BASE_URL) {
     throw new Error(
-      'VITE_API_URL belum dikonfigurasi. Periksa Environment Variables Vercel.'
+      'VITE_API_URL belum dikonfigurasi.'
     );
   }
 
@@ -19,7 +18,6 @@ function buildUrl(endpoint) {
   return `${BASE_URL}${path}`;
 }
 
-// Mengambil token dan membuat headers
 function getHeaders(contentType = 'application/json') {
   const headers = {};
 
@@ -36,7 +34,6 @@ function getHeaders(contentType = 'application/json') {
   return headers;
 }
 
-// Satu fungsi untuk seluruh request API
 async function requestApi(endpoint, options = {}) {
   const url = buildUrl(endpoint);
 
@@ -57,9 +54,7 @@ async function requestApi(endpoint, options = {}) {
       result = JSON.parse(responseText);
     } catch {
       throw new Error(
-        `Server mengirim respons bukan JSON (HTTP ${response.status}): ${
-          responseText.slice(0, 200)
-        }`
+        `Respons server bukan JSON (HTTP ${response.status}): ${responseText.slice(0, 200)}`
       );
     }
   }
@@ -80,7 +75,6 @@ function useFetch(endpoint = null) {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(endpoint !== null);
 
-  // GET otomatis ketika endpoint diberikan
   useEffect(() => {
     if (!endpoint) {
       setLoading(false);
@@ -114,12 +108,9 @@ function useFetch(endpoint = null) {
 
     fetchData();
 
-    return () => {
-      controller.abort();
-    };
+    return () => controller.abort();
   }, [endpoint]);
 
-  // GET manual
   const get = useCallback(async (path) => {
     setError(null);
 
@@ -133,7 +124,6 @@ function useFetch(endpoint = null) {
     }
   }, []);
 
-  // POST
   const post = useCallback(async (path, body) => {
     setError(null);
 
@@ -148,7 +138,6 @@ function useFetch(endpoint = null) {
     }
   }, []);
 
-  // PUT
   const put = useCallback(async (path, body) => {
     setError(null);
 
@@ -163,7 +152,6 @@ function useFetch(endpoint = null) {
     }
   }, []);
 
-  // DELETE
   const del = useCallback(async (path) => {
     setError(null);
 
