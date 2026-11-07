@@ -9,8 +9,8 @@ function Dashboard() {
   const [message, setMessage] = useState({ type: "", text: "" });
   const [loading, setLoading] = useState(false);
 
-  
-  const API_BASE = import.meta.env.VITE_API_URl;
+
+  const API_BASE = import.meta.env.VITE_API_URL;
   const token = localStorage.getItem("token");
 
   async function fetchDashboardData() {
