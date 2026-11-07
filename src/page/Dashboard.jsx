@@ -21,7 +21,7 @@ function Dashboard() {
       const walletData = await walletRes.json();
       if (walletRes.ok) setBalance(walletData.data.balance);
 
-      const mutationRes = await fetch("/api/transactions", {
+      const mutationRes = await fetch("${API_BASE}/transactions", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const mutationData = await mutationRes.json();
