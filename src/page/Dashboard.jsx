@@ -25,6 +25,10 @@ function Dashboard() {
         headers: { Authorization: `Bearer ${token}` },
       });
       const mutationData = await mutationRes.json();
+
+      console.log("Response Status Transactions:", mutationRes.status);
+      console.log("Data Transactions dari Backend:", mutationData);
+
       if (mutationRes.ok) setMutations(mutationData.data);
     } catch (err) {
       console.error("Gagal memuat data dashboard:", err);
